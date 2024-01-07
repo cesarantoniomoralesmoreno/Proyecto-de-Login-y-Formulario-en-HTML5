@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formularios en HTML</title>
+  </head>
+  <body>
+    <h1>Formularios en HTML</h1>
+    <form action="mi_servidor" ><!--En este espacio va la url del servidor y 
+        el tipo de metodo ejemplo: method="post", tambien podemos definir
+    si se abre la respuesta en la misma ventana target="_self" o si se abre 
+    en otra pestaña target="_blank", con autocomplete="off" se desactivan las 
+    sugerencias ya usadas en las cajas de texto-->
+      <!--method="post"-->
+      <fieldset>
+        <legend>Datos Persona:</legend>
+
+        <label for="idPersona">Persona</label><br/>
+        <input type="text" id="idPersona" name="idPersona"
+        placeholder="Escribe tu nombre" readonly="true" value="100" /><br/>
+        <!--Si agregamos disabled="true" este valor ya no se enviara al servidor, 
+            tambien podemos colocarlo como solo lectura-->
+        <!--Con esto la informacion que recibamos del servidor sera solo lectura y
+        el usuario no podra modificarla -->
+        <br/>
+        <input type="hidden" id="sistema" name="sistema" value="SAP"/>
+        <!--Con esto enviamos informacion oculta al servidor-->
+
+        <label for="nombre"> Nombre: </label
+        ><!--Con esto relacionamos la 
+            caja de texto con el label asi cuando demos click la etiqueta me 
+            activara el espacio para llenar la caja de texto-->
+        <input
+          type="text"
+          id="nombre"
+          name="nombre"
+          placeholder="Escribe el nombre"
+          required="true"
+        />
+        <!--value="Carlos" con esto podemos asignar como default a mostrar esta informacion en 
+            las cajas de texto no obstante se debe eliminar si no queremos enviarlo al servidor, 
+            si queremos que el usuario lea una informacion y luego se borre se usa placeholder 
+            esta informacion no sera enviada al servidor-->
+        <br /><br />
+
+        <label for="apellido"> Apellido: </label
+        ><!--Con esto relacionamos la 
+            caja de texto con el label asi cuando demos click la etiqueta me 
+            activara el espacio para llenar la caja de texto-->
+        <input
+          type="text"
+          id="apellido"
+          name="apellido"
+          placeholder="Escribe el apellido"
+          required="true"
+        />
+        <!-- value="Lara"-->
+
+        <br /><br />
+        <!--<label for="password" > Password: </label> esto es para asignar un password
+
+        <input type="password" id="pasword" name="password" required="true"/>-->
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" />
+
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad" max="100" min="1" /><br />
+        <!--Si deseamos capturar un valor decimal podemos usar step="any"-->
+        <br />
+
+        <label>Genero</label><br />
+        <input type="radio" id="femenino" name="genero" value="femenino" />
+        <!--Para que al momento de seleccionar el radioboton seleccione solo 1 y 
+            no envie ambos a la BD se coloca en name el mismo nombre para cada radioboton-->
+        <!--el value puede ser 1-0 dependiendo de lo que querramos asignar en la BD-->
+        <label for="femenino">Femenino</label>
+        <br />
+        <input type="radio" id="masculino" name="genero" value="masculino" />
+        <!--el value puede ser 1-0 dependiendo de lo que querramos asignar en la BD-->
+        <label for="masculino">Masculino</label>
+        <br />
+
+        <label>Genero de musica favorita</label><br />
+        <input type="checkbox" id="clasica" name="musica" value="clasica" />
+        <label for="clasica">Clasica</label><br />
+
+        <input type="checkbox" id="rock" name="musica" value="rock" />
+        <label for="rock">Rock</label><br />
+
+        <input type="checkbox" id="jazz" name="musica" value="jazz" />
+        <label for="jazz">Jazz</label><br />
+
+        <label for="autos">Marca de Autos favorita</label><br />
+
+        <!--menu desplegable con select-->
+        <select id="autos" name="autos">
+          <!-- multiple="true" con esto podemos asignar la 
+            configuracion para poder seleccionar varios a la vez-->
+          <option value="volvo">Volvo</option>
+          <option value="bmw">BMW</option>
+          <option value="audi" selected="true">Audi</option>
+          <!--Para asignar la opcion que aparecera 
+                por default en el menu desplegable-->
+          <br /></select
+        ><br />
+
+        <label for="comentario">Comentario</label><br />
+        <textarea id="comentario" name="comentario" rows="2" cols="30">
+        Este es mi comentario
+        </textarea
+        ><br />
+
+        <br /><br />
+        <input type="submit" value="Enviar" />
+        <input
+          type="submit"
+          formnovalidate="formnovalidate"
+          value="Enviar sin validar"
+        /><br /><br />
+        <!--Hay dos formas en que se pueden enviar los datos al servidor:
+        1. Por el metodo Get que es enviando la informacion por la url y luego al servidor
+        2. El metodo POST que es enviando la informacion junto con el mensaje a traves de un HTTP Request
+        hacia el servidor-->
+
+        <input type="reset"  value="Restablecer"/>
+
+
+      </fieldset>
+    </form>
+  </body>
+</html>
